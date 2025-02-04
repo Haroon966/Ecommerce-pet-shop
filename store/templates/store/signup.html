@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Poppins", Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(120deg, #007bff 0%, #00c6ff 100%);
+      }
+      form {
+        background: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        margin: 0 auto;
+      }
+      button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        font-size: 18px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        font-size: 18px;
+      }
+      .fa {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %}
+      <h1>Sign Up</h1>
+      <label for="username"><i class="fa fa-user"></i> Username:</label>
+      {{ form.username }}
+      <label for="password1"><i class="fa fa-lock"></i> Password:</label>
+      {{ form.password1 }}
+      <label for="password2"
+        ><i class="fa fa-lock"></i> Confirm Password:</label
+      >
+      {{ form.password2 }}
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>

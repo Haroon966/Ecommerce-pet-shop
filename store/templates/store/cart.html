@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        margin: 2rem 0;
+        color: #db7f67;
+      }
+
+      .cart-item {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .cart-item h2 {
+        font-size: 24px;
+        margin-bottom: 1rem;
+      }
+
+      .cart-item p {
+        font-size: 18px;
+        margin-bottom: 1rem;
+      }
+
+      .cart-item hr {
+        margin: 1rem 0;
+      }
+
+      a.btn {
+        display: inline-block;
+        background-color: #db7f67;
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+      }
+
+      a.btn:hover {
+        background-color: #e67e53;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Your Shopping Cart</h1>
+    {% for item in cart_items %}
+    <div class="cart-item">
+      <h2>{{ item.product.name }}</h2>
+      <p>Quantity: {{ item.quantity }}</p>
+      <p>Price: ${{ item.product.price }}</p>
+      <hr />
+    </div>
+    {% endfor %}
+    <a href="{% url 'product_list' %}" class="btn">Continue Shopping</a>
+  </body>
+</html>

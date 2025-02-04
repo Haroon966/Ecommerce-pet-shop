@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin: 2rem 0;
+        color: #db7f67;
+      }
+
+      form {
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: #45413e;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+      }
+
+      button[type="submit"] {
+        background-color: #db7f67;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        width: 100%;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #f4cfc6;
+      }
+
+      a.btn {
+        display: inline-block;
+        margin-top: 1rem;
+        text-align: center;
+        text-decoration: none;
+        background-color: #45413e;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+      }
+
+      a.btn:hover {
+        background-color: #333;
+      }
+
+      @media only screen and (min-width: 600px) {
+        form {
+          max-width: 700px;
+        }
+      }
+
+      @media only screen and (min-width: 800px) {
+        form {
+          max-width: 900px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="{% url 'product_list' %}" class="btn">Back to Home</a>
+
+    <h1>Add New Product</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Add Product</button>
+    </form>
+    <a href="{% url 'product_list' %}" class="btn">Back to Product List</a>
+  </body>
+</html>
